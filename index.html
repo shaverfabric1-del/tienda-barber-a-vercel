@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELEMENTZ DISTRIBUCIONES — Equipamiento profesional para tu barbería</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #141414;
+      --bg-elevated: #1a1a1a;
+      --bg-card: #1f1f1f;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent: #c41e3a;
+      --accent-hover: #e02545;
+      --accent-muted: rgba(196, 30, 58, 0.15);
+      --border: #2a2a2a;
+      --success: #22c55e;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --transition: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .top-bar {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .top-bar a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color var(--transition);
+    }
+    .nav a:hover, .nav a.active { color: var(--accent); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .search-wrap {
+      position: relative;
+    }
+    .search-wrap input {
+      width: 220px;
+      padding: 0.5rem 1rem 0.5rem 2.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.875rem;
+      transition: border-color var(--transition);
+    }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+    .search-wrap input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      stroke: var(--text-muted);
+    }
+    .cart-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--accent-muted);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: var(--accent);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .cart-btn:hover {
+      background: rgba(196, 30, 58, 0.25);
+      border-color: var(--accent);
+    }
+
+    .quick-cats {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-cats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .quick-cats a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: background var(--transition), color var(--transition);
+    }
+    .quick-cats a:hover {
+      background: var(--accent-muted);
+      color: var(--accent);
+    }
+
+    .hero {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2.5rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, var(--accent-muted) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero p {
+      margin: 0 0 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--radius);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .hero-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .hero-badges {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--bg-card);
+      border-radius: 999px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .hero-badges .free { color: var(--success); }
+
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+    .section-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: gap var(--transition);
+    }
+    .section-link:hover { gap: 0.5rem; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .product-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .product-card .img-wrap {
+      aspect-ratio: 1;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 2.5rem;
+      position: relative;
+    }
+    .product-card .badge {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      background: var(--success);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+    .product-card .badge.sale { background: #dc2626; color: #fff; }
+    .product-card .body {
+      padding: 1rem;
+    }
+    .product-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-card .price-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .product-card .price {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--accent);
+    }
+    .product-card .price-old {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .product-card .btn-add {
+      width: 100%;
+      margin-top: 0.75rem;
+      padding: 0.6rem;
+      background: var(--accent-muted);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      color: var(--accent);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .product-card .btn-add:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .footer {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .footer-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: color var(--transition);
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-sedes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .footer-sede {
+      padding: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .footer-sede strong { display: block; margin-bottom: 0.25rem; font-size: 0.9375rem; }
+    .footer-sede span, .footer-sede a {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .footer-bottom .legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-bottom .legal a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8125rem;
+    }
+    .footer-bottom .legal a:hover { color: var(--accent); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .search-wrap input { width: 140px; }
+      .menu-toggle { display: block; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .product-card .body { padding: 0.75rem; }
+      .product-card h3 { font-size: 0.8125rem; }
+      .product-card .price { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    Envío gratis en <strong>Cali, Pasto, Tuluá y Medellín</strong> · Envíos nacionales con tu transportadora · <a href="#contacto">Contacto</a>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo"><img src="assets/logo-elementz.png" alt="ELEMENTZ DISTRIBUCIONES" class="logo-img"></a>
+      <nav class="nav">
+        <a href="#" class="active">Inicio</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#ofertas">Ofertas</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+          <input type="search" placeholder="Buscar productos" aria-label="Buscar">
+        </div>
+        <button type="button" class="cart-btn">🛒 0</button>
+        <button type="button" class="menu-toggle" aria-label="Menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="quick-cats">
+    <div class="quick-cats-inner">
+      <a href="#maquinas">Máquinas</a>
+      <a href="#patilleras">Patilleras</a>
+      <a href="#tijeras">Tijeras</a>
+      <a href="#barberas">Barberas</a>
+      <a href="#atomizadores">Atomizadores</a>
+      <a href="#capas">Capas</a>
+      <a href="#ceras">Ceras</a>
+      <a href="#combos">Combos</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Todo para tu <span class="highlight">barbería</span></h1>
+      <p>Equipamiento profesional, herramientas y cuidado. Envíos a todo Colombia y entrega el mismo día en las principales ciudades.</p>
+      <a href="#tienda" class="hero-cta">Ver tienda →</a>
+      <div class="hero-badges">
+        <span class="free">✓ Envío gratis</span>
+        <span>Cali · Medellín · Pasto · Tuluá</span>
+        <span>Pago seguro · Garantía</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="novedades">
+    <div class="section-header">
+      <h2 class="section-title">Novedades exclusivas</h2>
+      <a href="#" class="section-link">Ver todos →</a>
+    </div>
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="img-wrap">✂️</div>
+        <div class="body">
+          <h3>Set tijeras THE GANG KAZE Signature Series acero VG10 5.5"</h3>
+          <div class="price-wrap"><span class="price">$ 550.000</span></div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-9%</span>⚡</div>
+        <div class="body">
+          <h3>Máquina Wmark 8088 – Clipper Inalámbrica | Motor Brushless</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 290.000</span>
+            <span class="price">$ 265.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-13%</span>📦</div>
+        <div class="body">
+          <h3>Wmark 8613 Combo Clipper + Trimmer | Cuchilla DLC</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 320.000</span>
+            <span class="price">$ 280.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap">🧴</div>
+        <div class="body">
+          <h3>Maleta Profesional para Barbería PB-1067B</h3>
+          <div class="price-wrap"><span class="price">$ 235.000</span></div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge">Nuevo</span>💆</div>
+        <div class="body">
+          <h3>Masajeador Profesional WMARK NG-M2 | Batería 4000mAh</h3>
+          <div class="price-wrap"><span class="price">$ 340.000</span></div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="maquinas">
+    <div class="section-header">
+      <h2 class="section-title">Tus máquinas favoritas</h2>
+      <a href="#" class="section-link">Ver todas →</a>
+    </div>
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-12%</span>🔌</div>
+        <div class="body">
+          <h3>Máquina Vgr V-880C verde</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 260.000</span>
+            <span class="price">$ 230.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap">⚡</div>
+        <div class="body">
+          <h3>Maquina Wmark X1 Plus Clipper 10.000 RPM | Pantalla LED</h3>
+          <div class="price-wrap"><span class="price">$ 340.000</span></div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-15%</span>👑</div>
+        <div class="body">
+          <h3>Maquina MRD pro Vector HC‑999C Gold</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 1.000.000</span>
+            <span class="price">$ 850.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap">✂️</div>
+        <div class="body">
+          <h3>Maquina babyliss lo-profx compact dark blue</h3>
+          <div class="price-wrap"><span class="price">$ 450.000</span></div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="ofertas">
+    <div class="section-header">
+      <h2 class="section-title">Ofertas imperdibles</h2>
+      <a href="#" class="section-link">Ver todas →</a>
+    </div>
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-33%</span>💨</div>
+        <div class="body">
+          <h3>Soplador para Barbería – Limpieza Final Pb-1302</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 150.000</span>
+            <span class="price">$ 100.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-25%</span>🫙</div>
+        <div class="body">
+          <h3>Jarra Esterilizadora para Barbicide The Gang TG-014</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 79.900</span>
+            <span class="price">$ 60.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-20%</span>🖌️</div>
+        <div class="body">
+          <h3>Cepillo térmico The Gang TG-012</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 25.000</span>
+            <span class="price">$ 20.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="img-wrap"><span class="badge sale">-27%</span>🪮</div>
+        <div class="body">
+          <h3>Brocha The Gang TG-016D Dorada</h3>
+          <div class="price-wrap">
+            <span class="price-old">$ 22.000</span>
+            <span class="price">$ 16.000</span>
+          </div>
+          <button type="button" class="btn-add">Añadir al carrito</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-main">
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#maquinas">Máquinas</a></li>
+          <li><a href="#patilleras">Patilleras</a></li>
+          <li><a href="#ofertas">Ofertas</a></li>
+          <li><a href="#combos">Combos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Mi cuenta</a></li>
+          <li><a href="#">Rastrea tu pedido</a></li>
+          <li><a href="#">Devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" style="grid-column: 1 / -1;">
+        <h4>Sedes</h4>
+        <div class="footer-sedes">
+          <div class="footer-sede">
+            <strong>Cali Centro</strong>
+            <span>Calle 15#3-66 · C.C. Gran Colmena</span>
+            <a href="tel:+573045612675">+57 304 561 2675</a>
+          </div>
+          <div class="footer-sede">
+            <strong>Cali Sur</strong>
+            <span>Carrera 56 # 11A-33</span>
+            <a href="tel:+573002154960">+57 300 215 4960</a>
+          </div>
+          <div class="footer-sede">
+            <strong>Medellín</strong>
+            <span>Carrera 54 # 46-66 · CC Metro Plaza</span>
+            <a href="tel:+573008035773">+57 300 803 5773</a>
+          </div>
+          <div class="footer-sede">
+            <strong>Bogotá</strong>
+            <span>Carrera 11 #10-22 · C.C. Punto 11</span>
+            <a href="tel:+573003070623">+57 300 307 0623</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ELEMENTZ DISTRIBUCIONES. Todos los derechos reservados.</p>
+      <div class="legal">
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Devoluciones</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
