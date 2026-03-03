@@ -1,0 +1,99 @@
+{
+  "novedades": [
+    {
+      "nombre": "Set tijeras THE GANG KAZE Signature Series acero VG10 5.5\"",
+      "precio": "550.000",
+      "precioAntes": null,
+      "badge": null,
+      "emoji": "✂️"
+    },
+    {
+      "nombre": "Máquina Wmark 8088 – Clipper Inalámbrica | Motor Brushless",
+      "precio": "265.000",
+      "precioAntes": "290.000",
+      "badge": "-9%",
+      "emoji": "⚡"
+    },
+    {
+      "nombre": "Wmark 8613 Combo Clipper + Trimmer | Cuchilla DLC",
+      "precio": "280.000",
+      "precioAntes": "320.000",
+      "badge": "-13%",
+      "emoji": "📦"
+    },
+    {
+      "nombre": "Maleta Profesional para Barbería PB-1067B",
+      "precio": "235.000",
+      "precioAntes": null,
+      "badge": null,
+      "emoji": "🧴"
+    },
+    {
+      "nombre": "Masajeador Profesional WMARK NG-M2 | Batería 4000mAh",
+      "precio": "340.000",
+      "precioAntes": null,
+      "badge": "Nuevo",
+      "emoji": "💆"
+    }
+  ],
+  "maquinas": [
+    {
+      "nombre": "Máquina Vgr V-880C verde",
+      "precio": "230.000",
+      "precioAntes": "260.000",
+      "badge": "-12%",
+      "emoji": "🔌"
+    },
+    {
+      "nombre": "Maquina Wmark X1 Plus Clipper 10.000 RPM | Pantalla LED",
+      "precio": "340.000",
+      "precioAntes": null,
+      "badge": null,
+      "emoji": "⚡"
+    },
+    {
+      "nombre": "Maquina MRD pro Vector HC‑999C Gold",
+      "precio": "850.000",
+      "precioAntes": "1.000.000",
+      "badge": "-15%",
+      "emoji": "👑"
+    },
+    {
+      "nombre": "Maquina babyliss lo-profx compact dark blue",
+      "precio": "450.000",
+      "precioAntes": null,
+      "badge": null,
+      "emoji": "✂️"
+    }
+  ],
+  "ofertas": [
+    {
+      "nombre": "Soplador para Barbería – Limpieza Final Pb-1302",
+      "precio": "100.000",
+      "precioAntes": "150.000",
+      "badge": "-33%",
+      "emoji": "💨"
+    },
+    {
+      "nombre": "Jarra Esterilizadora para Barbicide The Gang TG-014",
+      "precio": "60.000",
+      "precioAntes": "79.900",
+      "badge": "-25%",
+      "emoji": "🫙"
+    },
+    {
+      "nombre": "Cepillo térmico The Gang TG-012",
+      "precio": "20.000",
+      "precioAntes": "25.000",
+      "badge": "-20%",
+      "emoji": "🖌️"
+    },
+    {
+      "nombre": "Brocha The Gang TG-016D Dorada",
+      "precio": "16.000",
+      "precioAntes": "22.000",
+      "badge": "-27%",
+      "emoji": "🪮"
+    }
+  ]
+}
